@@ -1,5 +1,5 @@
 <%@include file="Templates/Header.jsp" %>
-<section class="vh-100" style="background-color: #090333;">
+<section class="vh-100" style="background-color: #cccccc;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-xl-10">
