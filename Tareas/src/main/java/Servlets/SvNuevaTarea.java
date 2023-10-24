@@ -30,7 +30,7 @@ public class SvNuevaTarea extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        //LLamar a los daros que se escribieropn en el formulario
         String id = request.getParameter("id");
         String titulo = request.getParameter("titulo");
         String descripcion = request.getParameter("descripcion");
@@ -43,13 +43,15 @@ public class SvNuevaTarea extends HttpServlet {
         System.out.println("fecha: " + fecha);
         System.out.println("opcion: " + opcion);
 
-        if ("inicio".equals(opcion)) {
-            listaEnlazada.add(0,new Tarea(Integer.parseInt(id), titulo, descripcion, fecha));
-        } else if ("final".equals(opcion)) {
-            listaEnlazada.add( new Tarea(Integer.parseInt(id), titulo, descripcion, fecha));
+        if ("inicio".equals(opcion)) {//si la opcion es inicio, la tarea se inserta al inicio de la lista enlazada
+            listaEnlazada.add(0, new Tarea(Integer.parseInt(id), titulo, descripcion, fecha));
+        } else if ("final".equals(opcion)) {//si la opcion es final, la tarea se inserta al final de la lista enlazada
+            listaEnlazada.add(new Tarea(Integer.parseInt(id), titulo, descripcion, fecha));
 
         }
+        //enviar atributos a jsp
         request.setAttribute("listaEnlazada", listaEnlazada);
+        //redireccionar la pagina a jsp
         request.getRequestDispatcher("TareasApp.jsp").forward(request, response);
     }
 
